@@ -66,11 +66,11 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=textwrap.dedent(
             """Example:
-            netcat.py -t 192.168.0.110 -p 6969 -l -c # command shell
-            netcat.py -t 192.168.0.110 -p 6969 -l -u=mytest.txt # upload to file
-            netcat.py -t 192.168.0.110 -p 6969 -l -e=\"cat /etc/passwd\" # execute command
-            echo 'ABC' | ./netcat.py -t 192.168.0.110 -p 420 # echo text to target on port 420
-            netcat.py -t 192.168.0.110 -p 6969 # connect to server
+            netcat.py -t 127.0.0.1 -p 6969 -l -c # command shell
+            netcat.py -t 127.0.0.1 -p 6969 -l -u=mytest.txt # upload to file
+            netcat.py -t 127.0.0.1 -p 6969 -l -e=\"cat /etc/passwd\" # execute command
+            echo 'ABC' | ./netcat.py -t 127.0.0.1 -p 420 # echo text to target on port 420
+            netcat.py -t 127.0.0.1 -p 6969 # connect to server
             """
         ),
     )
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     parser.add_argument("-e", "--execute", help="execute specified command")
     parser.add_argument("-l", "--listen", action="store_true", help="listen")
     parser.add_argument("-p", "--port", type=int, default=6969, help="port")
-    parser.add_argument("-t", "--target", default="192.168.0.110", help="ip")
+    parser.add_argument("-t", "--target", default="127.0.0.1", help="ip")
     parser.add_argument("-u", "--upload", help="upload file")
     args = parser.parse_args()
     if args.listen:
